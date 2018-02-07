@@ -7,7 +7,7 @@ function postData(event) {
     let name = document.getElementById('name').value;
     let email = document.getElementById('email').value;
 
-    fetch('https://fir-demo-8cc6c.firebaseio.com/user.json', {
+    fetch('https://fir-demo-8cc6c.firebaseio.com/users.json', {
         method: 'POST',
         headers: new Headers({}),
         body: JSON.stringify({
@@ -24,11 +24,14 @@ function postData(event) {
 }
 
 function getData() {
-    fetch('https://fir-demo-8cc6c.firebaseio.com/user.json')
-        .then(function(data){
-
+    fetch('https://fir-demo-8cc6c.firebaseio.com/users.json')
+        .then(function(respose){
+            return Response.json();
+        })
+        .then(function (data) {
+            console.log('Request success: ', data);
         })
         .catch(function(error){
-
+            console.log('Request failure: ', error);
         });
 }
